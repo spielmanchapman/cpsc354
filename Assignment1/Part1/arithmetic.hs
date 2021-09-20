@@ -40,38 +40,63 @@ multN (S n) m = addN (multN n m) m
 -- II Arithmetic
 ----------------
 
+addI :: II -> II -> II
+addI 0 m = m
 
 ----------------
 -- QQ Arithmetic
 ----------------
 addP :: PP -> PP -> PP
+addP O m = m
+
+
 multP :: PP -> PP -> PP
-ii_pp :: PP -> II
+multP O m = m
+
+
+--ii_pp :: PP -> II
+--addI O m = m
+
+
 --addP O m = m
 --addP (S n) m = S (addP n m)
+
 addQ :: QQ -> QQ -> QQ
+addQ O m = m
+
+
 multQ :: QQ -> QQ -> QQ
+multQ O m = m
+
 
 ----------------
 -- Normalisation
 ----------------
 
 normalizeI :: II -> II
+nbv :: II -> II
 
 ----------------------------------------------------
 -- Converting between VM-numbers and Haskell-numbers
 ----------------------------------------------------
 
+nn_int :: Integer -> NN
+int_nn :: NN->Integer
+ii_int :: Integer -> II
+int_ii :: II -> Integer
+pp_int :: Integer -> PP
+int_pp :: PP->Integer
+float_qq :: QQ -> Float
 
 ----------
 -- Testing
 ----------
 main = do
-    --let a =
-    --let b =
-    --let c =
-    --let d =
+    let a = 3
+    let b = 4
+    let c = 5
+    let d = 2
     print $ addN (S (S O)) (S O)
     print $ multN (S (S O)) (S (S (S O)))
 
-    --print $ nbv (II (pp_int i) (pp_int j))
+    print $ nbv (II (pp_int a) (pp_int b))
