@@ -28,12 +28,12 @@ data QQ =  QQ II PP
 
 -- add natural numbers
 addN :: NN -> NN -> NN
-addN O m = m
+addN 0 m = m
 addN (S n) m = S (addN n m)
 
 -- multiply natural numbers
 multN :: NN -> NN -> NN
-multN O m = O
+multN 0 m = 0
 multN (S n) m = addN (multN n m) m
 
 ----------------
@@ -41,62 +41,32 @@ multN (S n) m = addN (multN n m) m
 ----------------
 
 addI :: II -> II -> II
-addI 0 m = m
+addI 0 n = m
+-- error ^ variable not in scope
+addI (S n) m = S (addI n m)
 
 ----------------
 -- QQ Arithmetic
 ----------------
+
+--same template as addN with differing NN and PP
 addP :: PP -> PP -> PP
-addP O m = m
-
-
-multP :: PP -> PP -> PP
-multP O m = m
-
-
---ii_pp :: PP -> II
---addI O m = m
-
-
---addP O m = m
---addP (S n) m = S (addP n m)
-
-addQ :: QQ -> QQ -> QQ
-addQ O m = m
-
-
-multQ :: QQ -> QQ -> QQ
-multQ O m = m
-
+addP I n = T n
+addP (T n) m = T (addP n m)
 
 ----------------
 -- Normalisation
 ----------------
 
-normalizeI :: II -> II
-nbv :: II -> II
 
 ----------------------------------------------------
 -- Converting between VM-numbers and Haskell-numbers
 ----------------------------------------------------
 
-nn_int :: Integer -> NN
-int_nn :: NN->Integer
-ii_int :: Integer -> II
-int_ii :: II -> Integer
-pp_int :: Integer -> PP
-int_pp :: PP->Integer
-float_qq :: QQ -> Float
 
 ----------
 -- Testing
 ----------
 main = do
-    let a = 3
-    let b = 4
-    let c = 5
-    let d = 2
     print $ addN (S (S O)) (S O)
     print $ multN (S (S O)) (S (S (S O)))
-
-    print $ nbv (II (pp_int a) (pp_int b))
