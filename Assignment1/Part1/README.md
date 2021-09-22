@@ -1,8 +1,5 @@
 # Connor Cowher - 2322777 
 # Corey Spielman - 2316074 
 # 9/17/2021 
-# a description of which parts of the assignment you have accomplished and where you run into difficulties
-# how you tested your programs
-# what you learned
-# interesting observations you made
-# how you connect the assignment with the theory.
+# We implemented addP into the calculator, and solved every error we recieved, but 
+# we were unable to resolve an error about the variable not being in scope, on line 44.
