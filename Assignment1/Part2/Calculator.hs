@@ -18,4 +18,3 @@ calc s =
 
 -- ghc Calculator.hs
 -- echo "1+2*3" | ./Calculator
--- . 
