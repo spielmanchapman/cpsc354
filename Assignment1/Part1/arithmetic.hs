@@ -49,7 +49,6 @@ addI (S n) m = S (addI n m)
 -- QQ Arithmetic
 ----------------
 
---same template as addN with differing NN and PP
 addP :: PP -> PP -> PP
 addP I n = T n
 addP (T n) m = T (addP n m)
@@ -68,5 +67,9 @@ addP (T n) m = T (addP n m)
 -- Testing
 ----------
 main = do
-    print $ addN (S (S O)) (S O)
-    print $ multN (S (S O)) (S (S (S O)))
+    -- Integers: (II i j) represents i-j, (II k l) represents k-l
+    let i = 1
+    let j = 2
+    let k = 3
+    let l = 4
+    --print $ int_ii (addI (II (nn_int i) (nn_int j)) (II (nn_int k) (nn_int l)))
