@@ -14,9 +14,11 @@ data II = II NN NN
 
 -- Positive integers (to avoid dividing by 0)
 data PP = I | T PP
+  deriving (Eq,Show) -- for equality and printing
 
 -- Rational numbers
 data QQ =  QQ II PP
+  deriving (Eq,Show) -- for equality and printing
 
 ------------------------
 -- Arithmetic on the  VM
@@ -28,30 +30,30 @@ data QQ =  QQ II PP
 
 -- add natural numbers
 addN :: NN -> NN -> NN
-addN 0 m = m
+addN O m = m
 addN (S n) m = S (addN n m)
 
 -- multiply natural numbers
 multN :: NN -> NN -> NN
-multN 0 m = 0
+multN O m = O
 multN (S n) m = addN (multN n m) m
 
 ----------------
 -- II Arithmetic
 ----------------
 
-addI :: II -> II -> II
-addI 0 n = m
--- error ^ variable not in scope
-addI (S n) m = S (addI n m)
+--addI :: II -> II -> II
+--addI O m = m
+--addI (S n) m = S (addI n m)
 
 ----------------
 -- QQ Arithmetic
 ----------------
 
+-- add + numbers
 addP :: PP -> PP -> PP
-addP I n = T n
-addP (T n) m = T (addP n m)
+addP I m = (T m)
+addP (T n) m =  addP n (T m)
 
 ----------------
 -- Normalisation
@@ -66,10 +68,13 @@ addP (T n) m = T (addP n m)
 ----------
 -- Testing
 ----------
+
 main = do
-    -- Integers: (II i j) represents i-j, (II k l) represents k-l
+-- Integers: (II i j) represents i-j, (II k l) represents k-l
     let i = 1
     let j = 2
     let k = 3
     let l = 4
-    --print $ int_ii (addI (II (nn_int i) (nn_int j)) (II (nn_int k) (nn_int l)))
+    print $ addN (S (S O)) (S O)
+    print $ multN (S (S O)) (S (S (S O)))
+    print $ addP (T (T (T I))) (T I) -- T = Successor and I = 1
