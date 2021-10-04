@@ -12,5 +12,3 @@ eval (Mod n m) = (eval n) % (eval m)
 eval (Raised n m) = (eval n) ^ (eval m)
 eval (Sqrt n) = float(sqrt(eval n))
 eval (Neg n) = (-1) * (eval n)
-
-eval (addP n m) = (eval n) + (eval m)
