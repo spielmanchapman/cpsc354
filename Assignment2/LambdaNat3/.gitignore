@@ -1,0 +1,10 @@
+./*
+!app/Main.hs
+!grammar/LambdaNat3.cf
+!src/Interpreter.hs
+!test/*
+!LambdaNat.cabal
+!LICENSE
+!package.yaml
+!README.md
+!stack.yaml
