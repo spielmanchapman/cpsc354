@@ -26,10 +26,10 @@ evalCBN :: Exp -> Exp
 evalCBN (EApp e1 e2) = case (evalCBN e1) of
     (EAbs i e3) -> evalCBN (subst i e2 e3)
     e3 -> EApp e3 e2
-evalCBN ENat0 = ENat0
-evalCBN (ENatS e3) = ENatS (evalCBN e3)
 ----------------------------------------------------
 --- YOUR CODE goes here for extending the interpreter
+evalCBN ENat0 = ENat0
+evalCBN (ENatS e3) = ENatS (evalCBN e3)
 ----------------------------------------------------
 evalCBN x = x -- this is a catch all clause, currently only for variables, must be the clause of the eval function
 
