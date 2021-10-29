@@ -30,6 +30,8 @@ evalCBN (EApp e1 e2) = case (evalCBN e1) of
 --- YOUR CODE goes here for extending the interpreter
 evalCBN ENat0 = ENat0
 evalCBN (ENatS e3) = ENatS (evalCBN e3)
+
+evalCBN (EIf e1 e2 e3 e4) = if (evalCBN e1) == (evalCBN e2) then (evalCBN e3) else (evalCBN e4)
 ----------------------------------------------------
 evalCBN x = x -- this is a catch all clause, currently only for variables, must be the clause of the eval function
 
