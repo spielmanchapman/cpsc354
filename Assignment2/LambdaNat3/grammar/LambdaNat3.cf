@@ -4,11 +4,16 @@
 
 Prog.   Program ::= Exp; -- this first line is redundant
 EAbs.   Exp1 ::= "\\" Id "." Exp;  -- in effect: "\" Id "." Exp ; -- btw, pronounce "\" as "lambda" in this context
+EIf.       Exp2 ::= "if" Exp "=" Exp "then" Exp "else" Exp ;
+ELet.      Exp2 ::= "let" Id "=" Exp "in" Exp ;               -- let x = A in B is sugar for (\x.B)A
+ERec.      Exp2 ::= "let rec" Id "=" Exp "in" Exp ;
+EMinusOne. Exp2 ::= "minus_one" Exp ;                         -- because we do not have pattern matching in LambdaNat
 EApp.   Exp2 ::= Exp2 Exp3; -- application associates on the left
 ENat0.  Exp3 ::= "0";
 ENatS.  Exp3 ::= "S" Exp3;
 EVar.   Exp4 ::= Id;
-EStr.   Exp4 ::= String Exp4;
+internal EFix. Exp2 ::= "fix" Exp ;                           -- to implement "let rec"
+
 
 
 
