@@ -23,10 +23,10 @@ evalCBN ENil = ENil -- EOL equals iteself
 evalCBN (ECons e1 e2) =( ECons (evalCBN e1) (evalCBN e2) )
 
 -- evalCBN (EHd e): Head of list
-
+evalCBN (EHd e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e1
 
 -- evalCBN (ETl e): Pop head, return list
-
+evalCBN (EHd e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e2
 
 -- evalCBN (ELE e1 e2): less_equal
 
