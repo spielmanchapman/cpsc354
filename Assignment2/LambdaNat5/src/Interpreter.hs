@@ -20,16 +20,24 @@ evalCBN (EFix e) = evalCBN (EApp e (EFix e))
 evalCBN ENil = ENil -- EOL equals iteself
 
 -- evalCBN (ECons e1 e2): Id:# | Id:(ECons)
+-- separate head from tail and evaluate both -> recursively evaluate tail
 evalCBN (ECons e1 e2) =( ECons (evalCBN e1) (evalCBN e2) )
 
 -- evalCBN (EHd e): Head of list
+-- take out the head from evaluating
 evalCBN (EHd e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e1
 
 -- evalCBN (ETl e): Pop head, return list
+-- take out the tail from evaluating
 evalCBN (EHd e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e2
 
 -- evalCBN (ELE e1 e2): less_equal
-
+-- assume we are dealing with 2 Integers, otherwise throw error due to no case
+evalCBN (ELE e1 e2) = case (evalCBN e1) of 
+    (EInt j) -> case (evalCBN e2) of 
+        (EInt k) -> case (j < k) of
+            True -> (EInt 1)
+            False -> (EInt 0)
 
 
 evalCBN (EPlus e1 e2) = case (evalCBN e1) of
