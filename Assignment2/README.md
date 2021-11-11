@@ -39,12 +39,16 @@ The first program was `member`, which was simple to figure out because we have b
 `sort` was also quickly figured out be using recursion to insert each list item into an empty list at the right position using `insert`. We also recognized that this looks a lot like insertion sort.
 
 ### Task 3
-
+Task 3 asked us to recreate the previous programs in Haskell. Since we've already created these programs, it was simple enough to translate them over to Haskell. The main difficulty we had was remembering proper Haskell syntax, dealing with the Haskell library and researching how to pass a function as an argument. We created some issues to fix in terms of syntax, which was a minor problem. After creating functions like `prod`, `sum` and `map`, there were some conflicts with pre-existing Haskell functions named exactly the same. Finally for `map`, we had to research how to pass a function as a type, which came out to be `map (Int->Int) -> Int -> Int`.
 
 
 ### Further Questions
 
+> There are a lot of interesting questions. For example, #:# does not parse, but (#):# does. Why? Does that mean that it would make sense to change the grammar?
 
+> Reflect on the differences between LambdaNat5 and the Calculator. In LambdaNat5, why can't we implement arithmetic using the simple `evalCBN (EPlus e1 e2) = (evalCBN e1) + (evalCBN e2)`
+
+> Did you notice that the specification "the output-list must be sorted in case that the input-list is sorted" states an invariant? Can you use it to prove the correctness of sort (that is, that sort actually does sort)?
 
 ### Overall Difficulties
 Most of the difficulties we faced were just starting off at each task. We typically struggled when starting a new section because we did not know what exactly the syntax of each task should look like. Luckily we found the hints placed around LambdaNat4, such as `test/test.lc` showcasing how an advanced program in LambdaNat would look like.
