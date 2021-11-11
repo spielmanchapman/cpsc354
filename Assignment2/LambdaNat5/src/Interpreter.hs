@@ -29,7 +29,7 @@ evalCBN (EHd e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e1
 
 -- evalCBN (ETl e): Pop head, return list
 -- take out the tail from evaluating
-evalCBN (EHd e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e2
+evalCBN (ETl e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e2
 
 -- evalCBN (ELE e1 e2): less_equal
 -- assume we are dealing with 2 Integers, otherwise throw error due to no case
