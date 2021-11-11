@@ -41,6 +41,8 @@ The first program was `member`, which was simple to figure out because we have b
 ### Task 3
 Task 3 asked us to recreate the previous programs in Haskell. Since we've already created these programs, it was simple enough to translate them over to Haskell. The main difficulty we had was remembering proper Haskell syntax, dealing with the Haskell library and researching how to pass a function as an argument. We created some issues to fix in terms of syntax, which was a minor problem. After creating functions like `prod`, `sum` and `map`, there were some conflicts with pre-existing Haskell functions named exactly the same. Finally for `map`, we had to research how to pass a function as a type, which came out to be `map (Int->Int) -> Int -> Int`.
 
+The only other difficulty we had was our own fault. We inconveniently named our primary variables `n` and `m`, which quickly became a problem when trying to communicate with each other. By the time we reached the last few programs, we switched to `x` and `y` to not confuse the similar pronunciation of the previous variables we used.
+
 
 ### Further Questions
 
