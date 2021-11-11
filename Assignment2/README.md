@@ -34,3 +34,18 @@ The first program was `member`, which was simple to figure out because we have b
 
 `map` was annoying and crashed Ayden's VSCode, as we tried running it without a terminating case `if list = # then list`, which caused an infinite loop trying to run the function on `#`
 
+`insert` was also simple because of the way we interpreted the instructions. We dumbed-down the explaination to "add element before the first list item that is larger than it". With this along with the hint about using less_equal, the task was trivial. There was a minor hiccup in figuring this out because we had some kind of parsing error at first. We kept exploring the `less_equal` function to see what was happening. Turns out, we wasted half an hour searching for nothing because we wrapped parentheses in an if-then-else statement, such that insteal of parsing `if [Expr] = [Expr] then...`, we tried to parse `if [boolean] then...` which was not recognized by the parser.
+
+`sort` was also quickly figured out be using recursion to insert each list item into an empty list at the right position using `insert`. We also recognized that this looks a lot like insertion sort.
+
+### Task 3
+
+
+
+### Further Questions
+
+
+
+### Overall Difficulties
+Most of the difficulties we faced were just starting off at each task. We typically struggled when starting a new section because we did not know what exactly the syntax of each task should look like. Luckily we found the hints placed around LambdaNat4, such as `test/test.lc` showcasing how an advanced program in LambdaNat would look like.
+
