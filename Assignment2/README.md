@@ -48,13 +48,19 @@ Task 3 asked us to recreate the previous programs in Haskell. Since we've alread
 
 \# denotes the end of a list. If we say a list is of 2 items, with the first item containing 'end of a list', that would not make any sense programatically. However (#) denotes an empty list. Though it is empty, a list is a list, and of course we must allow a list object to be a list item, so (#):# is allowable as a list containing 1 item; an empty list.
 
+
+
 > Reflect on the differences between LambdaNat5 and the Calculator. In LambdaNat5, why can't we implement arithmetic using the simple `evalCBN (EPlus e1 e2) = (evalCBN e1) + (evalCBN e2)`
 
 LambdaNat 5 is not just a calculator, because it does not demand that we feed it 2 integers for `EPlus`. LambdaNat5 will actually accept non-integers and it will figure out what to do with them. It includes cases for us adding non-integer items. Whereas in the calculator, feeding `EPlus` a non-integer parameter will just break it, because it is specifically made for adding two integers.
 
+
+
 > Did you notice that the specification "the output-list must be sorted in case that the input-list is sorted" states an invariant? Can you use it to prove the correctness of sort (that is, that sort actually does sort)?
 
 The sort function depends on the identity that a single-item list takes. A list of 1 item is inherently sorted. Therefore, if we insert an item to that single-item list, the resulting list will also be sorted. Since we separate lists with recursion to single out the last item of the list, we can work back down the stack while regrowing the list and keeping it sorted.
+
+
 
 > In other programming languages, why could there not just be an abstract type? In our LambdaNat parser, we just said that any `Id` would just be evaluated by itself. Could other languages just allow any "type" and give it default print operations? For example, some type `blob` is not defined by an interpreter, but when printed could just print as its datatype or variable name.
 
