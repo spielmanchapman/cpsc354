@@ -1,0 +1,6 @@
+let rec member = \ elem. \list.
+    if list = # then 0 else
+        if (hd list) = elem then 1 else
+            member elem (tl list)
+in
+member 1 2:3:1:#
