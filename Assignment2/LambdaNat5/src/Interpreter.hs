@@ -35,7 +35,7 @@ evalCBN (ETl e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e2
 -- assume we are dealing with 2 Integers, otherwise throw error due to no case
 evalCBN (ELE e1 e2) = case (evalCBN e1) of 
     (EInt j) -> case (evalCBN e2) of 
-        (EInt k) -> case (j < k) of
+        (EInt k) -> case (j <= k) of
             True -> (EInt 1)
             False -> (EInt 0)
 

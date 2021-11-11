@@ -18,3 +18,19 @@ Finally we were also asked to implement a less-than function. We read that this 
 
 ### Task 2
 
+Task 2 in part 3 was to create a few programs in the LambdaNat interpreter. 
+
+The first program was `member`, which was simple to figure out because we have become very familiar with recursion. 
+
+`Remove` was a bit trickier because it was not immediately intuitive to evaluate the head and recursively inspect the remaining tail, because instinct brought us to look for a solution with iteration over each list item.
+
+`Sum` was also simple, as we remembered that the end of any list should be #. We were asked to explain sum `x:2:3:4:#` and sum `1:2:3:x:#`
+    - `x:2:3:4:#` => `x + 9` because x cannot be evaluated in terms of integers, so the result will be `x + (tl 2:3:4:#)`, which evaluates to `x + 9`
+    - `1:2:3:x:#` => `1 + (2 + (3 + (x + 0)))` because x is evaluated last before `#`, thus resulting in `x + 0`. `x + 0` cannot compare to `3`, so its best reduction is `3 + (x + 0)`. This continues at each reduction, and moving through the heads each integer cannot be reduced with a value that has a non-integer nested inside.
+
+`Prod` was the same thing as sum, and had similar interactions with non-integers like `x`
+
+`plus_two` was trivial to enact on an element
+
+`map` was annoying and crashed Ayden's VSCode, as we tried running it without a terminating case `if list = # then list`, which caused an infinite loop trying to run the function on `#`
+
