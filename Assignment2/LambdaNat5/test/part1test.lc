@@ -1,0 +1,37 @@
+hd one:two
+
+;;
+
+hd one:two:#
+
+;;
+
+hd (one:two):#
+
+;;
+
+hd (one:two:#):#
+
+;;
+
+(hd one:two:#):#
+
+;;
+
+tl one:two
+
+;;
+
+tl one:two:#
+
+;;
+
+tl (one:two):#
+
+;;
+
+tl (one:two:#):#
+
+;;
+
+(tl one:two:#):#
