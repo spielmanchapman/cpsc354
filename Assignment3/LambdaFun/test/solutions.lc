@@ -4,27 +4,51 @@ rec member = \x.\y. case y of {
     (a:as) -> case x == a of { true -> true, _ -> member x as } };;
 
 -- remove
-
+rec remove = \x. \y. case y of {
+    [] -> [],
+    (a:as) -> case x == a of {
+        true -> as,
+        false -> a : (remove x as)
+    }
+} ;;
 
 
 -- sum 
-
+rec sum = \x. case x of {
+    [] -> 0,
+    (a:as) -> a + (sum as)
+} ;;
 
 
 -- prod 
+rec prod = \x. case x of {
+    [] -> 0,
+    (a:as) -> a * (sum as)
+} ;;
 
 
-
--- plsutwo
-
+-- plustwo
+val plustwo = \x. x+2;;
 
 
 -- map 
-
+rec map = \func. \list. case list of {
+    [] -> [],
+    (a:as) -> (func a) : (map func as)
+} ;;
 
 
 -- insert 
-
-
+rec insert = \elem. \list. case list of {
+    [] -> [elem],
+    (a:as) -> case elem <= a of {
+        true -> elem : list,
+        false -> a : (insert elem as)
+    }
+} ;;
 
 -- sort
+rec sort = \list. case list of {
+    [] -> [],
+    (a:as) -> insert a (sort as)
+} ;;

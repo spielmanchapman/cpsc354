@@ -10,7 +10,7 @@ rec add = \x . \y. case x of {
     _ -> plusone (add (x-1) y)} ;;
 
 -- pattern matching on lists
-rec member = \x.\y. case y of { 
+rec member = \x. \y. case y of { 
     [] -> false, 
     (a:as) -> case x == a of { true -> true, _ -> member x as } };;
 
