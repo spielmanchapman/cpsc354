@@ -1,0 +1,30 @@
+-- member
+rec member = \x.\y. case y of { 
+    [] -> false, 
+    (a:as) -> case x == a of { true -> true, _ -> member x as } };;
+
+-- remove
+
+
+
+-- sum 
+
+
+
+-- prod 
+
+
+
+-- plsutwo
+
+
+
+-- map 
+
+
+
+-- insert 
+
+
+
+-- sort
