@@ -5,13 +5,58 @@ val newCList = \e.
 
 -- complete the following functions
 
--- val next = \a. 
+-- next
+-- If the parameter is of form [val, pointer] then return the location of the pointer
+val next = \a. case !a of {
+    [e, aptr] -> aptr
+} ;;
 
--- val get = \a. 
+-- get
+-- Just like next, but instead return the current value
+val get = \a. case !a of {
+    [e, aptr] -> e
+} ;;
 
--- val insert = \e. \a. 
+-- val
+-- make a list item, set its pointer to 
+val insert = \e. \a.
+	let val newlist = new [] in
+        newlist := [e, next a];
+        a := [get a, newlist];
+    x;;
 
 -- val delete = \a. 
 
 -- val update = \e. \a. 
+
+
+
+--
+-- Tests
+--
+
+rec toListAux = \h. \b. case b == h of {
+        true -> [] ,
+        false -> case !b of {
+            [v, b'] -> v : (toListAux h b')
+        }
+};;
+
+val cListToList = \a. case !a of {
+    [v, a'] -> v : (toListAux a a')
+};;
+
+val testNext1 =
+    let val l1 = new [] in
+    let val l2 = new [] in
+    l1 := ["a", l2];
+    l2 := ["b", l1];
+    (next l1) == l2
+;;
+
+val testInsert1 =
+    let val l = newCList "a" in
+    insert "b" l;
+    cListToList l == ["a", "b"]
+;;
 
