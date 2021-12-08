@@ -23,14 +23,14 @@ val insert = \e. \a.
 	let val newlist = new [] in
         newlist := [e, next a];
         a := [get a, newlist];
-    x;;
+    newlist;;
 
 -- delete 
 -- based on test case, this actually deletes the next node which is way easier
 -- clear the pointer to next node to release memory, reset current node [current node's value, pointer to node ahead of next node]
 val delete = \a.
 	let val currentValue = get a in
-	let val nodeTwoAhead = next(next a) in
+    let val nodeTwoAhead = next(next a) in
 	(next a) := "NULL";
 	a := [currentValue, nodeTwoAhead];
 	a;;
