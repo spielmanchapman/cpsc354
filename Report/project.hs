@@ -1,3 +1,5 @@
+-- Instructions to run: Enter your move (Rock, Paper, or Scissors) when executing the game.
+
 import System.IO
 import System.Random
 import Control.Monad
