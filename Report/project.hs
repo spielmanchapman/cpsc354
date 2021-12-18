@@ -23,13 +23,12 @@ play :: Throw -> Throw -> String
 play p1 p2
   | p1 `beats` p2 = "You win!"
   | p2 `beats` p1 = "You lose."
-  | otherwise     = "Tie."
-
+  | otherwise     = "No winner this time! It's a Tie."
 main :: IO ()
 main = do
-  putStr "Enter your move [Rock, Paper, or Scissors]: "
+  putStr "Please enter a move: Rock, Paper, or Scissors? \n"
   hFlush stdout
   p1 <- getLine >>= readIO
   p2 <- liftM (fst . random) getStdGen
-  putStrLn $ show p1 ++ " vs. " ++ show p2
+  putStrLn $ "Game on! " ++ show p1 ++ " vs. " ++ show p2
   putStrLn $ play p1 p2
