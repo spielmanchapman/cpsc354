@@ -4,7 +4,7 @@ import Control.Monad
 import Control.Arrow
 
 data Throw = Rock | Paper | Scissors
-           deriving (Show, Read, Enum, Bounded)
+  deriving (Show, Read, Enum, Bounded)
 
 instance Random Throw where
   random = randomR (minBound, maxBound)
