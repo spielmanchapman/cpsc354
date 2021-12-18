@@ -14,10 +14,10 @@ instance Random Throw where
           b' = fromEnum b
 
 beats :: Throw -> Throw -> Bool
-Rock     `beats` Scissors = True
-Paper    `beats` Rock     = True
-Scissors `beats` Paper    = True
-_        `beats` _        = False
+Rock `beats` Scissors = True
+Paper `beats` Rock = True
+Scissors `beats` Paper = True
+_ `beats` _ = False
 
 play :: Throw -> Throw -> String
 play p1 p2
@@ -30,5 +30,5 @@ main = do
   hFlush stdout
   p1 <- getLine >>= readIO
   p2 <- liftM (fst . random) getStdGen
-  putStrLn $ "Game on! " ++ show p1 ++ " vs. " ++ show p2
+  putStrLn $ "Game on! " ++ show p1 ++ " vs. " ++ show p2 ++ "..."
   putStrLn $ play p1 p2
