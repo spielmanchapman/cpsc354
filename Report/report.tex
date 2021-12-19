@@ -1312,6 +1312,21 @@ After a while, I found a template on a code review website that builds a basic m
 \medskip\noindent
 I spent some time debugging the issues that were pointed out with the code, as well as took an in-depth exploration into how the software is able to perform its expected target \cite{SF}.
 
+\medskip\noindent
+From a game designer perspective, the most important part of the core game-play is the loop, or how re-playable it is.
+
+\medskip\noindent
+Rock paper scissors is a good example of a re-playable game, because it's so dependant on random chance.
+
+\medskip\noindent
+If you were to play against a human, you could theoretically figure out what their next choice is going to be.
+
+\medskip\noindent
+This is the main element of strategies for rock paper scissors.
+
+\medskip\noindent
+If you're playing against a computer though, it's completely random.
+
 \begin{lstlisting}
 -- Rock Paper Scissors in Haskell 
 
@@ -1475,6 +1490,15 @@ If they had not read the instructions to play, the game wouldn't play as they ex
 In practical use this does not make a difference, as from a human perspective it's just a matter of waiting to prompt user input. 
 
 \medskip\noindent
+This can be compared with the example from earlier, about foldl'.
+
+\medskip\noindent
+From a split second perspective, where every key stroke matters it may take longer for this method.
+
+\medskip\noindent
+But from an ordinary consumer perspective, there isn't an obvious sign of run-time being slowed down.
+
+\medskip\noindent
 When it comes to the run-time of the program, the change is so minute that from a realistic standpoint it would not change anything obvious.
 
 \medskip\medskip
@@ -1520,22 +1544,19 @@ By keeping the programming language functional at its lowest possible form, deve
 Removing complexity from the system may make some actions more difficult, but with no room for error this is sometimes the preferred route.
 
 \medskip\noindent
-Apples and oranges are both delicious choices of fruit.
+When comparing apples and oranges, yes they are both delicious choices of fruit, but they are different in some regards.
 
 \medskip\noindent
 They grow unlike each other, act different from one another, and taste different as a whole.
 
 \medskip\noindent
-Yes they are two completely different fruit, but the key is that they are in fact both fruit.
-
-\medskip\noindent
-Much alike a functional programming language, and a non functional programming language, both have their advantages and disadvantages.
+Much alike a functional programming language, and a non functional programming language, they have their advantages and disadvantages.
 
 \medskip\noindent
 When it comes down to actually using one though, unless the situation is particularly specific they can both get the same job done.
 
 \medskip\noindent
-In the end, it really depends on the use case of the program for developers to determine the most efficient way to tackle their goal.
+And in the end, it really depends on the use case of the program for developers to determine the most efficient way to tackle their goal.
 
 \medskip\medskip
 \begin{lstlisting}
