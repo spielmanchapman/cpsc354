@@ -1131,16 +1131,16 @@ By modifying B and staying within the confines of the problem, the paradox is cl
 If Machine B outputs a 1, it will then be told to loop forever. 
 
 \medskip\noindent
-If Machine B outputs a 0, it will then be told to halt. This Machine is now called Machine C.
+But if Machine B outputs a 0, it will then be told to halt. This Machine is now called Machine C.
 
 \medskip\noindent
-If Machine C were able to take Machine C as a form of input, it would lead to a paradox. 
+And so if Machine C were able to take Machine C as a form of input, it would lead to a paradox. 
 
 \medskip\noindent
 If the program does eventually halt, Machine C will then not halt and be stuck in an infinite loop. 
 
 \medskip\noindent
-If the program does not eventually halt, the program will then halt.
+And by the same logic if the program does not eventually halt, the program will then halt.
 
 \medskip\noindent
 This is a classic example of a paradox in action, and infinite loops more often than not are problematic at their core. 
@@ -1307,13 +1307,15 @@ As a Computer Scientist major who's minoring in Game Development, I wanted to ta
 I spent a long time researching different games people have created through Haskell, but unfortunately most of them ended up being extremely complex, and not well suited as a short project.
 
 \medskip\noindent
-After a while, I found a template on a code review website that builds a basic model of the game Rock Paper Scissors, but it wasn't written in the most efficient manor.
+After a while, I found a template on a code review website that builds a basic model of the game Rock Paper Scissors, but it wasn't written in the most efficient manner.
 
 \medskip\noindent
-I spent some time debugging the issues that were pointed out with the code, as well as took an in-depth exploration into how the software is able to perform its expected target \cite{HG}.
+I spent some time debugging the issues that were pointed out with the code, as well as took an in-depth exploration into how the software is able to perform its expected target \cite{SF}.
 
 \begin{lstlisting}
 -- Rock Paper Scissors in Haskell 
+
+-- Instructions to play: Enter your move (Rock, Paper, or Scissors) as standard input when executing the game.
 
 import System.IO
 import System.Random
@@ -1321,14 +1323,14 @@ import Control.Monad
 import Control.Arrow
 
 data Throw = Rock | Paper | Scissors
-           deriving (Show, Read, Enum, Bounded)
+  deriving (Show, Read, Enum, Bounded)
 
 instance Random Throw where
   random = randomR (minBound, maxBound)
 
   randomR (a, b) g = first toEnum $ randomR (a', b') g
     where a' = fromEnum a
-          b' = fromEnum b
+           b' = fromEnum b
 
 beats :: Throw -> Throw -> Bool
 Rock `beats` Scissors = True
@@ -1350,6 +1352,9 @@ main = do
   putStrLn $ "Game on! " ++ show p1 ++ " vs. " ++ show p2
   putStrLn $ play p1 p2
 \end{lstlisting}
+
+\medskip\noindent
+There are some basic flaws with this setup, but the game can be trusted to play as expected each time, which is the most important aspect.
 
 \medskip\medskip
 \begin{lstlisting}
@@ -1452,9 +1457,25 @@ If p1 pulls ahead and beats p2, then the game can simply print the player won, a
 However is p2 manages to outplay p1, the game will let the user know they've lost.
 
 \medskip\noindent
-Finally, if the case of no winners is undertaken, like in the case of the AI selecting the same choice as the player, then the game will note to the player that they have tied. 
+Finally, if the case of no winners is undertaken, like in the case of the AI selecting the same choice as the player, then the game will note to the player that they have tied.
 
 \medskip\noindent
+This at it's essence is the core game-play loop, allowing for random chances in a battle that is always predictable in its calculations.
+
+\medskip\noindent
+Overall the game does run as expected, but only with the assumption that the players move is entered initially.
+
+\medskip\noindent
+The problem is that there exists a slight chance of a new player running the game for the first time, without entering their move initially.
+
+\medskip\noindent
+If they had not read the instructions to play, the game wouldn't play as they expected.
+
+\medskip\noindent
+In practical use this does not make a difference, as from a human perspective it's just a matter of waiting to prompt user input. 
+
+\medskip\noindent
+When it comes to the run-time of the program, the change is so minute that from a realistic standpoint it would not change anything obvious.
 
 \medskip\medskip
 \begin{lstlisting}
@@ -1534,6 +1555,6 @@ In the end, it really depends on the use case of the program for developers to d
 \bibitem[RC]{RC} \href{https://medium.com/the-research-nest/what-is-reversible-computing-af9ddc74e1fd}{What is Reversible Computing?} Medium, 2020.
 \bibitem[HL]{HL} \href{https://en.wikipedia.org/wiki/Hoare_logic}{Hoare Logic}, Wikipedia, 2021.
 \bibitem[KB]{KB} \href{https://www.youtube.com/watch?v=cB5lvUK3wLU}{Knuth-Bendix Completion Part 1: Introduction}, Jin Xing Lim, 2020.
-\bibitem[HG]{HG} \href{https://codereview.stackexchange.com/questions/18422/first-attempt-at-writing-rock-paper-scissors-game}{Rock Paper Scissors in Haskell}, Simon Forsberg, 2014.
+\bibitem[SF]{SF} \href{https://codereview.stackexchange.com/questions/18422/first-attempt-at-writing-rock-paper-scissors-game}{Rock Paper Scissors in Haskell}, Simon Forsberg, 2014.
 \end{thebibliography}
 \end{document}
